@@ -2,13 +2,8 @@
 class Unique(object):
     def __init__(self, items, **kwargs):
         self.items = items
-
-        if type(items) is list:
-            self.len = len(items)
-            self.index = 0
-        else:
-            self.len = 1
-            self.index = 0
+        self.len = len(items)
+        self.index = 0
 
         if 'ignore_case' in kwargs.keys():
             self.ignore_case = kwargs['ignore_case']
