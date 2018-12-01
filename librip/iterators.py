@@ -11,25 +11,28 @@ class Unique(object):
             self.ignore_case = False
 
     def __next__(self):
-        if self.index == self.len:
-            raise StopIteration
+        while True:
+            if self.index == self.len:
+                raise StopIteration
 
-        if self.index != 0:
-            count = 0
-            while count < self.index:
-                if self.ignore_case:
-                    if self.items[self.index].lower() == self.items[count].lower():
-                        self.index += 1
-                        return
-                else:
-                    if self.items[self.index] == self.items[count]:
-                        self.index += 1
-                        return
-                count += 1
+            before_ind = self.index
 
-        currentIndex = self.index
-        self.index += 1
-        return self.items[currentIndex]
+            if self.index != 0:
+                count = 0
+                while count < self.index:
+                    if self.ignore_case:
+                        if self.items[self.index].lower() == self.items[count].lower():
+                            self.index += 1
+                            break
+                    else:
+                        if self.items[self.index] == self.items[count]:
+                            self.index += 1
+                            break
+                    count += 1
+
+            if before_ind == self.index:
+                self.index += 1
+                return self.items[before_ind]
 
     def __iter__(self):
         return self

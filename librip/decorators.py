@@ -4,9 +4,9 @@
 # Если функция вернула словарь (dict), то ключи и значения должны выводить в столбик через знак равно
 
 def print_result(func_to_decorate):
-    def decorated_func():
+    def decorated_func(*args):
         print(func_to_decorate.__name__)
-        func = func_to_decorate()
+        func = func_to_decorate(*args)
         if type(func) is list:
             for el in func:
                 print(el)
@@ -15,4 +15,5 @@ def print_result(func_to_decorate):
                 print('{} = {}'.format(key, value))
         else:
             print(func)
+        return func
     return decorated_func

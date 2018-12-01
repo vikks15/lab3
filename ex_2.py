@@ -9,26 +9,22 @@ data3 = ['a', 'A', 'b', 'B']
 # Реализация задания 2
 unique1 = Unique(data1)
 for el in unique1:
-    if el:
-        print(el, end=' ')
+    print(el, end=' ')
 
 print()
 
 unique2 = Unique([item for item in data2])
 for el in unique2:
-    if el:
-        print(el, end=' ')
+    print(el, end=' ')
 
 print()
 
 unique3 = Unique(data3, ignore_case=True)
 for el in unique3:
-    if el:
-        print(el, end=' ')
+    print(el, end=' ')
 
 print()
 
 unique3 = Unique(data3)
 for el in unique3:
-    if el:
-        print(el, end=' ')
+    print(el, end=' ')
